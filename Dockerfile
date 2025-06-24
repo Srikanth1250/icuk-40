@@ -1,15 +1,15 @@
-# Use a base image
 FROM node:18
 
-# Set working directory
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Copy dependency definitions
 COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
-# Copy source code
+# Copy the rest of the app
 COPY . .
 
-# Start app
-CMD ["npm", "start"]
+# Start the app
+CMD ["node", "index.js"]
